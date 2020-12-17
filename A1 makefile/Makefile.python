@@ -1,0 +1,17 @@
+# Johnny Li
+# Assignment 1
+# Makefile Python
+
+# --- macros
+PY=python2
+MAIN=main
+DIR=$(PWD)
+
+# --- makefile
+.SUFFIXES: .py
+FILES = \
+	python_program.py
+
+All:
+	echo "$(PY) $(DIR)/$(FILES)"\"'$$1'\" > python_program
+	chmod 777 python_program

@@ -1,0 +1,56 @@
+Name: Johnny Li
+UFID: 9699-4228
+
+Note: John the Ripper was used to crack these passwords.
+command prompt -> cd C:\Users\Johnny Li\Downloads\john-1.9.0-jumbo-1-win64\run -> John.exe
+Hashes are saved in a file called hash.txt to be decoded.
+Check from another terminal you can run:	john --status
+
+Your hash for Part 1 MD5
+4b821f4e664a37937bde786fb4db068c
+
+MD5: ZAgVDf
+john --format=raw-md5 hash.txt
+I used John the Ripper to decode the hash. I first check that I got it operating correctly
+by decoding the hashes given and checking if the password I recieved, if any, matches. The
+given hashes was successfully decoded as the password recieved matches. I then placed the 
+given MD5 hash to be solved into the hash.txt file and set John the Ripper program to decode 
+MD5 format. The program checked the default password and word list, no match. It then began 
+to brute force the password and eventually the program found the password.
+
+Your hash for Part 2 SHA256
+f6bffc2d0625bde924b7a90bc1b2333210986180bf87c378851778572e353216
+
+SHA256: XGEfoED
+john --fork=4 --incremental=Alnum --format=raw-sha256 hash.txt
+I used John the Ripper to decode the hash. I first check that I got it operating correctly
+by decoding the hashes given and checking if the password I recieved, if any, matches. The
+given hashes was successfully decoded as the password recieved matches. I then placed the 
+given SHA256 hash to be solved into the hash.txt file and set John the Ripper program to decode 
+SHA256 format. The program checked the default password and word list, no match. It then began 
+to brute force the password with the character set with upper case, lower case, and digits at
+a character length of 7 and eventually the program found the password.
+
+Your hash for Part 3 bcrypt
+$2b$12$ykREU4NC5U05af8plFKI6.32VEvpHztrV7XUQaRATCVx8lnmzCJNW
+
+bcrypt: 123456
+john --format=raw-bcrypt hash.txt
+Proceeded to use John the Ripper to decode the hash. I again first check that I got it operating correctly
+by decoding the hashes given and checking if the password I recieved, if any, matches. The
+given hashes was successfully decoded as the password recieved matches. I then placed the 
+given bcrypt hash to be solved into the hash.txt file and set John the Ripper program to decode 
+bcrypt format. The program checked the default password and the password was found.
+
+Your hash for Part 4 custom
+57ddee0bcd826d34d610b3c7cf44976c2de67e96084b4f6561eae63dd026b4e161fdf27f288963507bbc4cc677e3fe283bf7d09fb7ad218995cbea1c040241e4
+
+custom: gjrnz
+Since the password length is short and the complexity is simply, I wrote a script that the hashes an 
+input string based on the described custom hash. A incrementing string (eg. aaaaa, aaaab, etc.) was 
+passed in and the following hash was compared with my given hash, if they match I then have the password.
+
+Your hash for Part 5 custom EC
+9e01b6e860d852ba9c9ed1e9f7bca1911b6908517b3db1ff08040592e2b699e0866152b001cf464979f2c8158be701c02b55
+
+custom EC:
